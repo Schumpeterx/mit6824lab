@@ -128,3 +128,5 @@ Test (2D): snapshots basic ...
 			}
 ```
 它检查第10条log。然后调用raft的Snapshot。而在我的实现中，在applyChan<-ApplyMsg处偷懒，没有释放锁。而在Snapshot中又需要进行加锁，所以导致了死锁。再次说明，在进行RPC调用时，要释放锁。
+
+## LAB 3
